@@ -39,3 +39,10 @@ input[name=message] {
     padding: 5px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+
+/*note list styles*/
+.note-lists {
+    display: block;
+    margin: 5px;
+}

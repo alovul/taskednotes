@@ -1,27 +1,22 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import redirect
-from notes.forms import LogMessageForm
-from notes.models import LogMessage
-from django.utils.timezone import datetime
-from django.views.generic import ListView
+from notes.forms import CreateNoteListForm  
+from notes.models import Notelist
 
-class HomeListView(ListView):
-    """Renders the home page, with a list of all messages."""
-    model = LogMessage
+def home(request):
+    return render(request, 'home.html')
 
-    def get_context_data(self, **kwargs):
-        context = super(HomeListView, self).get_context_data(**kwargs)
-        return context
-
-def log_message(request):
-    form = LogMessageForm(request.POST or None)
-
-    if request.method == "POST":
+def create_note_list(request):
+    if request.method == 'POST':
+        form = CreateNoteListForm(request.POST)
         if form.is_valid():
-            message = form.save(commit=False)
-            message.log_date = datetime.now()
-            message.save()
-            return redirect("home")
+            # Process the form data (save the new note list, etc.)
+            # Assuming your CreateNoteListForm has a save() method to handle saving the form data
+            form.save()
+            # Redirect to a success page or any other page you desire
+            return redirect('home')  # Redirect to the home page after creating a note list
     else:
-        return render(request, "notes/log_message.html", {"form": form})
+        form = CreateNoteListForm()
+
+    return render(request, 'notes/create_note_list.html', {'form': form})

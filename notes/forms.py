@@ -1,7 +1,7 @@
 from django import forms
-from notes.models import LogMessage
+from notes.models import Notelist
 
-class LogMessageForm(forms.ModelForm):
+class CreateNoteListForm(forms.ModelForm):
     class Meta:
-        model = LogMessage
-        fields = ("message",)   # NOTE: the trailing comma is required
+        model = Notelist
+        fields = ("name",)   # NOTE: the trailing comma is required
