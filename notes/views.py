@@ -5,7 +5,7 @@ from notes.forms import CreateNoteListForm
 from notes.models import Notelist
 
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'notes/home.html')
 
 def create_note_list(request):
     if request.method == 'POST':
