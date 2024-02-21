@@ -1,0 +1,15 @@
+{% extends "notes/layout.html" %}
+
+{% block title %}
+Delete Note List
+{% endblock %}
+
+{% block content %}
+<h2>Delete Note List</h2>
+<p>Are you sure you want to delete {{ notelist.name }} and all its notes?</p>
+<form method="post" action="{% url 'delete_notelist' notelist.id %}">
+    {% csrf_token %}
+    <button class="delete-button" type="submit">Delete</button>
+</form>
+<a class="cancel-button" href="{% url 'home' %}">Cancel</a>
+{% endblock %}

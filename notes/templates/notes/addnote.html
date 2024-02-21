@@ -1,0 +1,27 @@
+{% extends "notes/layout.html" %}
+
+{% block title %}
+Add Note
+{% endblock %}
+
+{% block content %}
+<h2>Add Note</h2>
+<form method="post" action="{% url 'addnote' note_list_id=note_list_id %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="add-button" type="submit">Add Note</button>
+</form>
+{% if notes %}
+    <ul class="note-list">
+        {% for note in notes %}
+            <li class="note-list-item">
+                {{ note.description }}
+                <p>&mdash;&mdash;</p>
+                <a class="delete-button" href="{% url 'delete_note' note.id %}">Delete Note</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No notes available.</p>
+{% endif %}
+{% endblock %}

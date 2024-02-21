@@ -1,0 +1,14 @@
+{% extends "notes/layout.html" %}
+
+{% block title %}
+Create a Note List
+{% endblock %}
+
+{% block content %}
+<h2>Create a Note List</h2>
+<form method="post" action="{% url 'addnotelist' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="add-button">Create Note List</button>
+</form>
+{% endblock %}
