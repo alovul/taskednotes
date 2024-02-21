@@ -22,3 +22,16 @@ class Note(models.Model):
 
     def __str__(self):
         return f"Note in {self.note_list}: {self.description}"
+
+class Photonote(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=50)
+    description = models.TextField()
+    image = models.ImageField(upload_to='img')
+
+    def delete_photonotes(self):
+        # Delete all notes associated with this note list
+        Photonote.objects.filter(photonote=self).delete()
+
+    def __str__(self):
+        return f"{self.user.username}'s {self.name}"

@@ -1,5 +1,5 @@
 from django.urls import path
-from notes.views import home, signup, login, logged_out, addnotelist, addnote, delete_note, delete_notelist
+from notes.views import home, signup, login, logged_out, addnotelist, addnote, delete_note, delete_notelist, addphotonote, images, delete_photonote
 from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
@@ -11,4 +11,7 @@ urlpatterns = [
     path('addnote/<int:note_list_id>/', addnote, name='addnote'),
     path('delete_notelist/<int:notelist_id>/', delete_notelist, name='delete_notelist'),
     path('delete_note/<int:note_id>/', delete_note, name='delete_note'),
+    path('delete_photonote/<int:photonote_id>/', delete_photonote, name='delete_photonote'),
+    path('addphotonote/', addphotonote, name='addphotonote'),
+    path('images/', images, name='images'),
 ]

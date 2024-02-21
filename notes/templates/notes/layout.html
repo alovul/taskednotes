@@ -12,7 +12,9 @@
         <div class="navbar">
             {% if user.is_authenticated %}
                     <a href="{% url 'home' %}" class="navbar-item">Home</a>
+                    <a href="{% url 'images' %}" class="navbar-item">Your Images</a>
                     <a href="{% url 'addnotelist' %}" class="navbar-item">Create Note List</a>
+                    <a href="{% url 'addphotonote' %}" class="navbar-item">Add Photo Note</a>
                     {% if user.is_superuser %}
                     <a href="{% url 'admin:index' %}" class="navbar-item">Admin Login</a>
                     {% endif %}

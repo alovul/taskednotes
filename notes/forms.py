@@ -1,5 +1,5 @@
 from django import forms
-from notes.models import Notelist, User, Note
+from notes.models import Notelist, User, Note, Photonote
 from django.contrib.auth.forms import UserCreationForm
 
 class CreateNoteListForm(forms.ModelForm):
@@ -16,3 +16,8 @@ class AddNoteForm(forms.ModelForm):
     class Meta:
         model = Note
         fields = ['description',]
+
+class AddPhotoNoteForm(forms.ModelForm):
+    class Meta:
+        model = Photonote
+        fields = ['name', 'description', 'image']

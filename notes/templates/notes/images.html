@@ -1,0 +1,33 @@
+{% extends "notes/layout.html" %}
+
+{% block title %}
+Images
+{% endblock %}
+
+{% block content %}
+<style>
+    .image-list-item img {
+        width: 300px; /* Set the desired width */
+        height: 200px; /* Set the desired height */
+        object-fit: cover; /* Maintain aspect ratio and fill container */
+    }
+</style>
+<h2>Your Images</h2>
+{% if photonotes %}
+    <div class="image-gallery">
+        {% for photonote in photonotes %}
+            <ul class="image-list">
+                <li class="image-list-item">
+                    <h3>{{ photonote.name }}</h3>
+                    <img src="{{ photonote.image.url }}" alt="img">
+                    <p>{{ photonote.description }}</p>
+                    <a class="delete-button" href="{% url 'delete_photonote' photonote.id %}">Delete Image</a>
+                </li>
+            </ul>
+        {% endfor %}
+    </div>
+{% else %}
+    <p>No images found.</p>
+{% endif %}
+<a href="{% url 'addphotonote' %}" class="add-button">Upload Image</a>
+{% endblock %}

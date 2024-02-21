@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth import logout as auth_logout
-from .forms import CreateNoteListForm, SignUpForm, AddNoteForm
-from .models import Notelist, User, Note
+from .forms import CreateNoteListForm, SignUpForm, AddNoteForm, AddPhotoNoteForm
+from .models import Notelist, User, Note, Photonote
 from django.contrib.auth.decorators import login_required
 
 # Use LoginView and LogoutView for login and logout views
@@ -78,3 +78,29 @@ def delete_note(request, note_id):
         return redirect('addnote', note_list_id=note_list_id)
     
     return render(request, 'notes/delete_note.html', {'note': note, 'note_list_id': note_list_id})
+
+def addphotonote(request):
+
+    if request.method == 'POST':
+        form = AddPhotoNoteForm(request.POST, request.FILES)
+        if form.is_valid():
+            photonote = form.save(commit=False)
+            photonote.user = request.user
+            photonote.save()
+            return redirect('images')
+    else:
+        form = AddPhotoNoteForm()
+    
+    return render(request, 'notes/addphotonote.html', {'form': form})
+
+def images(request):
+    photonotes = Photonote.objects.filter(user=request.user)
+    return render(request, 'notes/images.html', {'photonotes': photonotes})
+
+def delete_photonote(request, photonote_id):
+    photonote = get_object_or_404(Photonote, pk=photonote_id)    
+    if request.method == 'POST':
+        photonote.delete()
+        return redirect('images')
+    
+    return render(request, 'notes/delete_photonote.html', {'photonote': photonote})

@@ -9,8 +9,7 @@
 /* Styling for the navigation bar */
 .navbar {
     background-color: lightslategray;
-    font-size: 1em;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font: 1em 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: white;
     padding: 8px 5px;
     text-align: center;
@@ -96,13 +95,14 @@ input[type="submit"] {
 }
 
 /* Styling for delete button */
-.delete-button {
+.delete-button,
+.add-button,
+.cancel-button,
+.signup_login-button,
+.list-name-button {
     display: inline-block;
-    padding: 12px 15px;
+    padding: 10px 15px;
     margin: 8px 0;
-    background-color: #e74c3c;
-    color: white;
-    text-decoration: none;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -114,85 +114,36 @@ input[type="submit"] {
     background-color: #c0392b;
 }
 
-/* Styling for add button with blue theme */
-.add-button {
-    display: inline-block;
-    padding: 12px 15px;
-    margin: 8px 0;
-    background-color: #3498db;
-    color: white;
-    text-decoration: none;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-/* Additional styles for hover state */
 .add-button:hover {
     background-color: #2980b9;
 }
 
-/* Styling for the cancel button */
-.cancel-button {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 8px 0;
-    background-color: #2ecc71;
-    color: white;
-    text-decoration: none;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-/* Additional styles for hover state */
 .cancel-button:hover {
     background-color: #27ae60;
 }
 
-/* Styling for the signup/login button with an orange theme and box shadow */
-.signup_login-button {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 8px 0;
-    background-color: #f39c12;
-    color: white;
-    text-decoration: none;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Additional styles for hover state */
-.signup_login-button:hover {
-    background-color: #d35400;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* Styling for the list name button with a blue to green gradient and box shadow */
+.signup_login-button,
 .list-name-button {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 8px 0;
-    background: linear-gradient(to right, #3498db, #2ecc71);
     color: white;
     text-decoration: none;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Additional styles for hover state */
+.signup_login-button:hover,
 .list-name-button:hover {
-    background: linear-gradient(to right, #2980b9, #27ae60);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Styling for signup/login button with an orange theme */
+.signup_login-button {
+    background-color: #f39c12;
+}
+
+/* Styling for list name button with a blue to green gradient */
+.list-name-button {
+    background: linear-gradient(to right, #3498db, #2ecc71);
+    font-weight: bold;
 }
 
 /* Styling for the footer */
