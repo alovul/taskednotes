@@ -8,17 +8,28 @@
 </head>
 
 <body>
-<div class="navbar">
-    <a href="{% url 'home' %}" class="navbar-brand">Home</a>
-
+    <div class="body-content">
+        <div class="navbar">
+            {% if user.is_authenticated %}
+                    <a href="{% url 'home' %}" class="navbar-item">Home</a>
+                    <a href="{% url 'addnotelist' %}" class="navbar-item">Create Note List</a>
+                    {% if user.is_superuser %}
+                    <a href="{% url 'admin:index' %}" class="navbar-item">Admin Login</a>
+                    {% endif %}
+                    <a href="{% url 'logged_out' %}" class="navbar-item">Logout</a>
+                    {% else %}
+                    <a href="{% url 'signup' %}" class="navbar-item">Signup</a>
+                    <a href="{% url 'login' %}" class="navbar-item">Login</a>
+                    <a href="{% url 'admin:index' %}" class="navbar-item">Admin</a>
+            {% endif %}         
+        </div>
+    {% block content %}{% endblock %}
 </div>
-
-<div class="body-content">
-    {% block content %}
-    {% endblock %}
+<div class="body-content footer">
+    
     <hr/>
     <footer>
-        <p>&copy; 2024</p>
+        <p>&copy;  TaskedNotes 2024</p>
     </footer>
 </div>
 </body>

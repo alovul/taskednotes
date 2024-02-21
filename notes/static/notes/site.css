@@ -1,48 +1,201 @@
+@charset "UTF-8";
+
+/* General styling for messages */
 .message {
     font-weight: 600;
     color: blue;
 }
 
-input[name=message] {
-    width: 80%;
-}
-
-.message_list th,td {
-    text-align: left;
-    padding-right: 15px;
-}
-
+/* Styling for the navigation bar */
 .navbar {
     background-color: lightslategray;
     font-size: 1em;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: white;
-    padding: 8px 5px 8px 5px;
+    padding: 8px 5px;
+    text-align: center;
 }
 
+/* Styling for navigation bar links */
 .navbar a {
     text-decoration: none;
     color: inherit;
 }
 
+/* Styling for the navbar brand */
 .navbar-brand {
     font-size: 1.2em;
     font-weight: 600;
 }
 
+/* Styling for navbar items */
 .navbar-item {
     font-variant: small-caps;
-    margin-left: 30px;
+    margin-left: 20px;
 }
 
+/* Styling for body content */
 .body-content {
-    padding: 5px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 800px;
+    margin-top: 20px;
 }
 
+/* Styling for message input */
+input[name=message] {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+}
 
-/*note list styles*/
-.note-lists {
-    display: block;
-    margin: 5px;
+/* Styling for Django form fields */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 6px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Styling for Django form submit button */
+input[type="submit"] {
+    background-color: lightslategray;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Styling for message list table */
+.message_list th,
+.message_list td {
+    text-align: left;
+    padding: 10px;
+}
+
+.note-list {
+    list-style-type: none;
+}
+
+.note-list-item li {
+    margin: 15px 0;
+}
+
+.note-list-item a,
+.note-list-item p {
+    display: inline-block;
+    margin: 15px;
+}
+
+/* Styling for delete button */
+.delete-button {
+    display: inline-block;
+    padding: 12px 15px;
+    margin: 8px 0;
+    background-color: #e74c3c;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Additional styles for hover state */
+.delete-button:hover {
+    background-color: #c0392b;
+}
+
+/* Styling for add button with blue theme */
+.add-button {
+    display: inline-block;
+    padding: 12px 15px;
+    margin: 8px 0;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Additional styles for hover state */
+.add-button:hover {
+    background-color: #2980b9;
+}
+
+/* Styling for the cancel button */
+.cancel-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 8px 0;
+    background-color: #2ecc71;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Additional styles for hover state */
+.cancel-button:hover {
+    background-color: #27ae60;
+}
+
+/* Styling for the signup/login button with an orange theme and box shadow */
+.signup_login-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 8px 0;
+    background-color: #f39c12;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Additional styles for hover state */
+.signup_login-button:hover {
+    background-color: #d35400;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Styling for the list name button with a blue to green gradient and box shadow */
+.list-name-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 8px 0;
+    background: linear-gradient(to right, #3498db, #2ecc71);
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Additional styles for hover state */
+.list-name-button:hover {
+    background: linear-gradient(to right, #2980b9, #27ae60);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Styling for the footer */
+.footer {
+    margin-top: 40px;
 }
