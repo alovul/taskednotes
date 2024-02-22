@@ -11,8 +11,14 @@
     <div class="body-content">
         <div class="navbar">
             {% if user.is_authenticated %}
+                    {% if request.user.profile_picture %}
+                        <img src="{{ request.user.profile_picture.url }}" alt="Profile Picture" class="navbar-profile-pic">
+                    {% else %}
+                        <img src="{% static 'default/default.jpg' %}" alt="Default Profile Picture" class="navbar-profile-pic">
+                    {% endif %}
                     <a href="{% url 'home' %}" class="navbar-item">Home</a>
                     <a href="{% url 'images' %}" class="navbar-item">Your Images</a>
+                    <a href="{% url 'addtasklist' %}" class="navbar-item">Add Task List</a>
                     <a href="{% url 'addnotelist' %}" class="navbar-item">Create Note List</a>
                     <a href="{% url 'addphotonote' %}" class="navbar-item">Add Photo Note</a>
                     {% if user.is_superuser %}
@@ -23,6 +29,7 @@
                     <a href="{% url 'signup' %}" class="navbar-item">Signup</a>
                     <a href="{% url 'login' %}" class="navbar-item">Login</a>
                     <a href="{% url 'admin:index' %}" class="navbar-item">Admin</a>
+
             {% endif %}         
         </div>
     {% block content %}{% endblock %}

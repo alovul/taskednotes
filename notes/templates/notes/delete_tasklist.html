@@ -1,0 +1,15 @@
+{% extends "notes/layout.html" %}
+
+{% block title %}
+Delete Task List
+{% endblock %}
+
+{% block content %}
+<h2>Delete Task List</h2>
+<p>Are you sure you want to delete {{ tasklist.name }} and all its tasks?</p>
+<form method="post" action="{% url 'delete_tasklist' tasklist.id %}">
+    {% csrf_token %}
+    <button class="delete-button" type="submit">Delete</button>
+</form>
+<a class="cancel-button" href="{% url 'home' %}">Cancel</a>
+{% endblock %}

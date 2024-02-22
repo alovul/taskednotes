@@ -1,0 +1,27 @@
+{% extends "notes/layout.html" %}
+
+{% block title %}
+Add Task
+{% endblock %}
+
+{% block content %}
+<h2>Add Task</h2>
+<form method="post" action="{% url 'addtask' task_list_id=task_list_id %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="add-button" type="submit">Add Task</button>
+</form>
+{% if tasks %}
+    <ul class="task-list">
+        {% for task in tasks %}
+            <li class="task-list-item">
+                {{ task.description }}
+                <p>&mdash;&mdash;</p>
+                <a class="delete-button" href="{% url 'delete_task' task.id %}">Delete Task</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No tasks available.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "notes/layout.html" %}
+
+{% block title %}
+Add Task List
+{% endblock %}
+
+{% block content %}
+<h2>Add Task List</h2>
+<form method="post" action="{% url 'addtasklist' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="add-button" type="submit">Add Task List</button>
+</form>
+{% endblock %}

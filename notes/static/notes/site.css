@@ -150,3 +150,13 @@ input[type="submit"] {
 .footer {
     margin-top: 40px;
 }
+
+.navbar-profile-pic {
+    height: 65px;  /* Adjust as needed */
+    width: 65px;   /* Adjust as needed */
+    border-radius: 50%;  /* Makes the image circular */
+    /* Center the image vertically */
+    display: flex;
+    align-items: center;
+    /* Add more styling as needed */
+}
