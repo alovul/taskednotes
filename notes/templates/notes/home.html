@@ -5,37 +5,52 @@ Home
 {% endblock %}
 
 {% block content %}
-<h2>Home Page</h2>
-<h2>Your 5 most recent Note Lists</h2>
-{% if note_lists %}
-    <ul class="note-list">
-        {% for note_list in note_lists %}
-            <li class="note-list-item">
-                <a class="list-name-button" href="{% url 'addnote' note_list.id %}">{{ note_list.name }}</a>
-                <p>&nbsp;&nbsp; &mdash;&mdash;&mdash;&mdash; &nbsp;&nbsp;</p>
-                <a class="delete-button" href="{% url 'delete_notelist' note_list.id %}">Delete List</a>
-            </li>
-        {% endfor %}
-        <a href="{% url 'addnotelist' %}" class="add-button">Create Note List</a>
-    </ul>
-{% else %}
-    <p>No note lists found.</p>
-    <a href="{% url 'addnotelist' %}" class="add-button">Create Note List</a>
-{% endif %}
-<h2>All Task Lists</h2>
-{% if task_lists %}
-    <ul class="task-list">
-        {% for task_list in task_lists %}
-            <li class="task-list-item">
-                <a class="list-name-button" href="{% url 'addtask' task_list.id %}">{{ task_list.name }}</a>
-                <p>&nbsp;&nbsp; &mdash;&mdash;&mdash;&mdash; &nbsp;&nbsp;</p>
-                <a class="delete-button" href="{% url 'delete_tasklist' task_list.id %}">Delete List</a>
-            </li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <p>No task lists available.</p>
-{% endif %}
 
-<a class="add-button" href="{% url 'addtasklist' %}">Add Task List</a>
+
+<h2>Home Page</h2>
+
+<div class="lists-wrapper">
+    <div class="list-container">
+        <h2>All Note Lists</h2>
+        <div class="note-list-container">
+            {% if note_lists %}
+                <ul class="note-list">
+                    {% for note_list in note_lists %}
+                        <li class="note-list-item">
+                            <a class="list-name-button" href="{% url 'addnote' note_list.id %}">{{ note_list.name }}</a>
+                            <p>&nbsp;&nbsp; &mdash;&mdash;&mdash;&mdash; &nbsp;&nbsp;</p>
+                            <a class="delete-button" href="{% url 'delete_notelist' note_list.id %}">Delete List</a>
+                        </li>
+                    {% endfor %}
+                    <a href="{% url 'addnotelist' %}" class="add-button">Create Note List</a>
+                </ul>
+            {% else %}
+                <p>No note lists found.</p>
+                <a href="{% url 'addnotelist' %}" class="add-button">Create Note List</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="list-container">
+        <h2>All Task Lists</h2>
+        <div class="task-list-container">
+            {% if task_lists %}
+                <ul class="task-list">
+                    {% for task_list in task_lists %}
+                        <li class="task-list-item">
+                            <a class="list-name-button" href="{% url 'addtask' task_list.id %}">{{ task_list.name }}</a>
+                            <p>&nbsp;&nbsp; &mdash;&mdash;&mdash;&mdash; &nbsp;&nbsp;</p>
+                            <a class="delete-button" href="{% url 'delete_tasklist' task_list.id %}">Delete List</a>
+                        </li>
+                    {% endfor %}
+                    <a class="add-button" href="{% url 'addtasklist' %}">Add Task List</a>
+                </ul>
+            {% else %}
+                <p>No task lists available.</p>
+                <a class="add-button" href="{% url 'addtasklist' %}">Add Task List</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
 {% endblock %}

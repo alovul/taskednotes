@@ -11,9 +11,24 @@
     background-color: lightslategray;
     font: 1em 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: white;
-    padding: 8px 5px;
     text-align: center;
+    position: fixed; /* Fix the position */
+    top: 0; /* Stick it to the top of the screen */
+    left: 0; /* Stick it to the left */
+    width: 100%; /* Make it full width */
+    z-index: 1000; /* Ensure it's on top of other elements */
+    padding: 10px 0; /* Add padding */
 }
+
+/* Styling for navbar items */
+.navbar-item {
+    font-variant: small-caps;
+    display: inline-block; /* Display as inline-block */
+    margin: 0 15px; /* Add space between items */
+    font-size: 1.1em; /* Increase font size */
+    line-height: 40px; /* Adjust line height for vertical centering */
+}
+
 
 /* Styling for navigation bar links */
 .navbar a {
@@ -23,19 +38,14 @@
 
 /* Styling for the navbar brand */
 .navbar-brand {
-    font-size: 1.2em;
-    font-weight: 600;
+    font-size: 1.4em; /* Increase font size */
 }
 
-/* Styling for navbar items */
-.navbar-item {
-    font-variant: small-caps;
-    margin-left: 20px;
-}
 
 /* Styling for body content */
 .body-content {
-    padding: 20px;
+    padding: 30px;
+    padding-top: 120px; /* Adjust this value to match the height of your navbar */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
     margin: 0 auto;
@@ -78,20 +88,6 @@ input[type="submit"] {
 .message_list td {
     text-align: left;
     padding: 10px;
-}
-
-.note-list {
-    list-style-type: none;
-}
-
-.note-list-item li {
-    margin: 15px 0;
-}
-
-.note-list-item a,
-.note-list-item p {
-    display: inline-block;
-    margin: 15px;
 }
 
 /* Styling for delete button */
@@ -148,15 +144,66 @@ input[type="submit"] {
 
 /* Styling for the footer */
 .footer {
-    margin-top: 40px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 55px; /* Adjust the height as needed */
+    background-color: lightslategray;
+    color: white;
+    text-align: center; /* Center text horizontally */
+    line-height: 20px; /* Vertically center text */
 }
 
+
+/* Styling for the profile picture */
 .navbar-profile-pic {
-    height: 65px;  /* Adjust as needed */
-    width: 65px;   /* Adjust as needed */
-    border-radius: 50%;  /* Makes the image circular */
-    /* Center the image vertically */
-    display: flex;
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+    display: inline-block;
     align-items: center;
-    /* Add more styling as needed */
+    margin-left: auto;
+    margin-right: 30px;
+}
+
+/* Styling for the profile picture image */
+.navbar-profile-pic img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+
+/* Additional styles for layout */
+.lists-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.list-container {
+    flex: 0 0 calc(50% - 40px);
+    margin: 0 25px;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+/* Additional styles for each list */
+.note-list, .task-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Additional styles for list items */
+.note-list-item, .task-list-item {
+    margin-bottom: 8px;
+}
+
+.note-list-item a,
+.note-list-item p,
+.task-list-item a,
+.task-list-item p {
+    text-decoration: none;
+    color: inherit;
 }
